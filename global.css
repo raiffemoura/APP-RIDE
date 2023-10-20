@@ -5,7 +5,7 @@
 }
 .btn-primary {
     --bs-btn-color: #fff;
-    --bs-btn-bg: #29c5cf;
+    --bs-btn-bg: #155a5f;
     --bs-btn-border-color: #29c5cf;
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #20858c;
@@ -21,6 +21,7 @@
 }
 
 
+
 #mapDetail{
     height: 300px;
     background-color: #ccc;
@@ -33,3 +34,10 @@
 .f120{
     font-size: 120px;
 }
+
+#title{
+   
+    height: 3rem
+    
+}
+

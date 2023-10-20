@@ -19,7 +19,9 @@ allRides.forEach(async ([id, value]) => {
     firstPosition.longitude
   );
 
+  const mapID = `map${ride.id}`;
   const mapElement = document.createElement("div");
+  mapElement.id = mapID;
   mapElement.style = "width:100px;height:100px;";
   mapElement.classList.add("bg-secondary");
   mapElement.classList.add("rounded-4");
@@ -43,7 +45,7 @@ allRides.forEach(async ([id, value]) => {
 
   const dateDiv = document.createElement("div");
   dateDiv.innerText = getStartDate(ride);
-  dateDiv.className = "text-secondary mt-2";
+  dateDiv.className = "text-primary mt-2";
 
   dataElement.appendChild(cityDiv);
   dataElement.appendChild(MaxSpeedDiv);
@@ -53,4 +55,24 @@ allRides.forEach(async ([id, value]) => {
 
   itemElement.appendChild(mapElement);
   itemElement.appendChild(dataElement);
+
+  const map = L.map(mapID, {
+    zoomControl: false,
+    dragging: false,
+    attributionControl: false,
+    scrollWheelZoom: false,
+  });
+  map.setView([firstPosition.latitude, firstPosition.longitude], 13);
+  L.tileLayer(
+    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    {
+      minZoom: 5,
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      ext: "png",
+    }
+  ).addTo(map);
+
+  L.marker([firstPosition.latitude, firstPosition.longitude]).addTo(map);
 });
