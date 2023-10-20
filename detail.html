@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
     <meta charset="UTF-8">
@@ -10,8 +10,26 @@
     <title>Ride Details</title>
 </head>
 
-<body>
+<body class="h-100">
 
+    <div class="container d-flex flex-column h-100">
+
+        <nav class="navbar justify-content-end ">
+            <a class="btn btn-close border border-dark p-2 bg-danger" href="./index.html"></a>
+        </nav>
+        <div id="mapDetail" class="rounded-4"></div>
+        <div class="d-flex flex-column justify-content-between flex-fill mb-3 mt-3">
+            <div id="data"></div>
+            <button class="btn btn-danger"><span class="display-4">Delete</span></button>
+        </div>
+    </div>
+
+
+
+
+    <script src="storage.js"></script>
+    <script src="dataManager.js"></script>
+    <script src="./detail.js"></script>
 </body>
 
 </html>
